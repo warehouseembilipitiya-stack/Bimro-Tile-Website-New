@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv public/favicons images/favicons)",
+      "Bash(mv public/robots.txt robots.txt)",
+      "Bash(mv public/site.webmanifest site.webmanifest)",
+      "Bash(mv public/images/social-share.jpg images/social-share.jpg)",
+      "Bash(node optimize-images.mjs)",
+      "Bash(sort -k5 -n)",
+      "Bash(node -e ' *)",
+      "Bash(rm images/hero/hero-bathroom.png images/hero/hero-kitchen.png images/hero/hero-tile-showcase.png images/hero/living-room-grey-floor-tile.png images/hero/living-room-minimalist.png images/hero/living-room-open-plan.png images/hero/living-room-wall-tile-feature.png)",
+      "Bash(rm images/inspiration/living-room-marble-accent-wall.png images/inspiration/living-room-tv-feature-wall.png)",
+      "Bash(rm images/signature-collections/collection-marble.jpg images/signature-collections/collection-modern-concrete.jpg images/signature-collections/collection-rustic-wood.jpg)",
+      "Bash(rm images/products/concrete-look.png images/products/designer-basin.png images/products/elegant-ceramic-tile.png images/products/modern-faucet.png images/products/modern-marble-tile.png images/products/mosaic-accent.png images/products/rustic-wood-finish.png images/products/travertine-inspired.png)",
+      "Bash(rm images/brands/desigle.png images/brands/grohe.jpg images/brands/huida.png images/brands/johnson-bathrooms.jpg images/brands/lanka-tiles.png images/brands/macktiles.png images/brands/rocell-bathware.png images/brands/rocell.jpg images/brands/s-lon.jpg images/brands/union.png)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(cat /tmp/server.log 2>&1; echo \"---\"; ps aux | grep -i python | grep -v grep)",
+      "Read(//tmp/**)",
+      "Bash(grep -rn 'products\\\\.html\\\\|collections\\\\.html\\\\|inspiration\\\\.html\\\\|product-detail\\\\.html' index.html about.html branches.html contact.html)",
+      "Bash(echo \"---grep exit: $?\")",
+      "Read(//c/Program Files \\(x86\\)/Microsoft/Edge/Application/**)",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Bash(mkdir -p /tmp/screenshots)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=390,844 --screenshot=/tmp/screenshots/index-mobile.png http://localhost:8080/index.html)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --hide-scrollbars --virtual-time-budget=4000 --window-size=390,844 --screenshot=/tmp/screenshots/index-mobile2.png http://localhost:8080/index.html)"
+    ]
+  }
+}

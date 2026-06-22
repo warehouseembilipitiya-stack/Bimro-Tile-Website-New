@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | Bimro Tile</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="images/favicons/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .error-code {
+      font-size: clamp(4rem, 15vw, 9rem);
+      font-weight: 700;
+      color: var(--color-red);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .error-page h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      margin-bottom: 1rem;
+    }
+    .error-page p {
+      color: var(--color-text-on-light-muted);
+      max-width: 32rem;
+      margin-inline: auto;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="index.html" class="site-logo" aria-label="Bimro Tile home">
+        <img src="images/logo/bimro-logo.png" alt="Bimro Tile" width="160" height="44">
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="branches.html">Branches</a></li>
+          <li><a href="contact.html" class="nav-contact-btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="error-page">
+    <div>
+      <p class="error-code">404</p>
+      <h1>Page Not Found</h1>
+      <p>The page you're looking for doesn't exist. It may have moved or the link may be incorrect.</p>
+      <div class="cluster" style="justify-content: center;">
+        <a href="index.html" class="btn btn-primary">Go to Homepage</a>
+        <a href="branches.html" class="btn btn-secondary">Find a Showroom</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

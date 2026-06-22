@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Bimro Tile</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #ffffff;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-top-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-top-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-icon {
+            margin-right: 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .contact-info {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .contact-info span {
+            margin-right: 15px;
+        }
+        
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #000;
+            text-decoration: none;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: #999;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #999;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after, nav ul li a.active:after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding-top: 120px;
+            padding-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumb-item {
+            font-size: 0.8rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: "/";
+            margin: 0 10px;
+            color: #999;
+        }
+        
+        .breadcrumb-link {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-link:hover {
+            color: #000;
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+        
+        .page-description {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 50px 0 80px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        /* Contact Form */
+        .contact-form-wrapper {
+            background-color: #f9f9f9;
+            padding: 3rem;
+        }
+        
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 1px;
+            background-color: #000;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #999;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .whatsapp-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .whatsapp-checkbox {
+            margin-right: 10px;
+        }
+        
+        .whatsapp-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #000;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #333;
+        }
+        
+        /* Contact Info */
+        .contact-info-wrapper {
+            padding-top: 1rem;
+        }
+        
+        .info-title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .info-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 1px;
+            background-color: #000;
+        }
+        
+        .whatsapp-block {
+            background-color: #25D366;
+            color: #fff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .whatsapp-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .whatsapp-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .whatsapp-description {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .whatsapp-link {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: 1px solid #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-link:hover {
+            background-color: #fff;
+            color: #25D366;
+        }
+        
+        .contact-methods {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-method {
+            margin-bottom: 1.5rem;
+        }
+        
+        .method-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        .method-content {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Branches Section */
+        .branches-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+        }
+        
+        .branch-card {
+            background: #fff;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .branch-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .branch-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+        
+        .branch-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+        
+        .branch-address {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .branch-phone {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .branch-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .branch-btn:hover {
+            background-color: #128C7E;
+        }
+        
+        .branch-btn-icon {
+            margin-right: 8px;
+        }
+        
+        /* Map Section */
+        .map-section {
+            height: 400px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #f5f5f5;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-text {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            color: #000;
+            border-radius: 50%;
+            margin-right: 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .footer-title {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background-color: #000;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #000;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            color: #000;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid #ddd;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        
+        /* Whatsapp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .branches-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .header-top {
+                display: none;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 1rem 2rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .branches-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .branches-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/+941234567890" class="whatsapp-float" title="Contact us on WhatsApp">
+        💬
+    </a>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="header-top-left">
+                    <div class="search-icon">🔍</div>
+                </div>
+                <div class="header-top-right">
+                    <div class="contact-info">
+                        <span>📞 +94 123 456 7890</span>
+                        <span>✉️ info@bimrotile.lk</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-main">
+                <a href="#" class="logo">BIMRO TILE</a>
+                <div class="mobile-menu-toggle">☰</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">PRODUCTS</a></li>
+                        <li><a href="#">COLLECTIONS</a></li>
+                        <li><a href="#">INSPIRATION</a></li>
+                        <li><a href="#">BRANCHES</a></li>
+                        <li><a href="#">ABOUT US</a></li>
+                        <li><a href="#" class="active">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></li>
+                <li class="breadcrumb-item">Contact Us</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-description">We're here to help with all your tile and bath ware needs. Reach out to us through any of the channels below, and our team will get back to you promptly.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2 class="form-title">Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <div class="whatsapp-option">
+                            <input type="checkbox" id="whatsapp" name="whatsapp" class="whatsapp-checkbox" checked>
+                            <label for="whatsapp" class="whatsapp-label">I prefer to receive responses via WhatsApp</label>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info-wrapper">
+                    <h2 class="info-title">Contact Information</h2>
+                    
+                    <div class="whatsapp-block">
+                        <div class="whatsapp-icon">💬</div>
+                        <h3 class="whatsapp-title">Chat with us on WhatsApp</h3>
+                        <p class="whatsapp-description">Get quick responses to your queries about our products and services through WhatsApp. Our team typically responds within 15 minutes during business hours.</p>
+                        <a href="https://wa.me/+941234567890" class="whatsapp-link">Start Chat</a>
+                    </div>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <h3 class="method-title">Phone</h3>
+                            <p class="method-content">Main Office: +94 123 456 7890</p>
+                            <p class="method-content">Customer Support: +94 123 456 7891</p>
+                            <p class="method-content">Hours: Monday - Saturday, 9am - 6pm</p>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <h3 class="method-title">Email</h3>
+                            <p class="method-content">General Inquiries: info@bimrotile.lk</p>
+                            <p class="method-content">Customer Support: support@bimrotile.lk</p>
+                            <p class="method-content">Sales: sales@bimrotile.lk</p>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <h3 class="method-title">Main Office</h3>
+                            <p class="method-content">123 Main Street, Embilipitiya,</p>
+                            <p class="method-content">Southern Province, Sri Lanka</p>
+                            <p class="method-content">Hours: Monday - Saturday, 9am - 6pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section class="branches-section">
+        <div class="container">
+            <h2 class="section-title">Our Branches</h2>
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <div class="branch-icon">📍</div>
+                    <h3 class="branch-title">Embilipitiya</h3>
+                    <p class="branch-address">123 Main Street, Embilipitiya</p>
+                    <p class="branch-phone">+94 123 456 7890</p>
+                    <a href="https://wa.me/+941234567890" class="branch-btn">
+                        <span class="branch-btn-icon">💬</span> WhatsApp
+                    </a>
+                </div>
+                <div class="branch-card">
+                    <div class="branch-icon">📍</div>
+                    <h3 class="branch-title">Pelmadulla</h3>
+                    <p class="branch-address">456 Central Road, Pelmadulla</p>
+                    <p class="branch-phone">+94 123 456 7892</p>
+                    <a href="https://wa.me/+941234567892" class="branch-btn">
+                        <span class="branch-btn-icon">💬</span> WhatsApp
+                    </a>
+                </div>
+                <div class="branch-card">
+                    <div class="branch-icon">📍</div>
+                    <h3 class="branch-title">Rakwana</h3>
+                    <p class="branch-address">789 Hill Street, Rakwana</p>
+                    <p class="branch-phone">+94 123 456 7893</p>
+                    <a href="https://wa.me/+941234567893" class="branch-btn">
+                        <span class="branch-btn-icon">💬</span> WhatsApp
+                    </a>
+                </div>
+                <div class="branch-card">
+                    <div class="branch-icon">📍</div>
+                    <h3 class="branch-title">Wellawaya</h3>
+                    <p class="branch-address">101 Main Street, Wellawaya</p>
+                    <p class="branch-phone">+94 123 456 7894</p>
+                    <a href="https://wa.me/+941234567894" class="branch-btn">
+                        <span class="branch-btn-icon">💬</span> WhatsApp
+                    </a>
+                </div>
+                <div class="branch-card">
+                    <div class="branch-icon">📍</div>
+                    <h3 class="branch-title">Tissamaharama</h3>
+                    <p class="branch-address">202 Lake Road, Tissamaharama</p>
+                    <p class="branch-phone">+94 123 456 7895</p>
+                    <a href="https://wa.me/+941234567895" class="branch-btn">
+                        <span class="branch-btn-icon">💬</span> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        [Google Map with all branch locations would be integrated here]
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="footer-logo">BIMRO TILE</div>
+                    <p class="footer-text">Premier retailer and wholesaler of tiles and bath ware in Sri Lanka, offering high-quality products for all your interior and exterior needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook">f</a>
+                        <a href="#" class="social-link" title="Instagram">i</a>
+                        <a href="#" class="social-link" title="Twitter">t</a>
+                        <a href="#" class="social-link" title="YouTube">y</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Floor Tiles</a></li>
+                        <li><a href="#">Wall Tiles</a></li>
+                        <li><a href="#">Bathroom Sets</a></li>
+                        <li><a href="#">Kitchen Tiles</a></li>
+                        <li><a href="#">Outdoor Tiles</a></li>
+                        <li><a href="#">Faucets & Mixers</a></li>
+                        <li><a href="#">Sanitary Ware</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Design Inspiration</a></li>
+                        <li><a href="#">Branches</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>+94 123 456 7890</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span>info@bimrotile.lk</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>123 Main Street, Embilipitiya, Sri Lanka</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🕒</span>
+                        <span>Monday - Saturday: 9am - 6pm<br>Sunday: Closed</span>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Bimro Tile. All Rights Reserved. | Website inspired by Rocell</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Mobile Menu Toggle and Form Handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('nav ul');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+            
+            // Contact Form Submission with WhatsApp Integration
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                const useWhatsApp = document.getElementById('whatsapp').checked;
+                
+                // Create message for WhatsApp
+                const whatsappMessage = `*New Contact Form Submission*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
+                
+                if (useWhatsApp) {
+                    // Redirect to WhatsApp with pre-filled message
+                    window.location.href = `https://wa.me/+941234567890?text=${whatsappMessage}`;
+                } else {
+                    // Here you would typically handle form submission to your server
+                    // For demo purposes, we'll just show an alert
+                    alert('Thank you for your message. We will get back to you soon!');
+                    contactForm.reset();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

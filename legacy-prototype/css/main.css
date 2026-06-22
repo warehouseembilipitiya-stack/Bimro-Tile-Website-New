@@ -1,0 +1,574 @@
+/* 
+* Bimro Tile - Global Stylesheet
+* Contains styles used across all pages of the website
+*/
+
+/* ==========================================
+   CSS Variables for Theming
+   ========================================== */
+   :root {
+    /* Colors */
+    --primary-color: #1A242C; /* Dark navy */
+    --secondary-color: #E31E24; /* Bright red */
+    --background-color: #1A242C;
+    --background-alt-color: #ffffff;
+    --text-color: #ffffff; /* Default text color for light backgrounds */
+    --text-light-color: #555555; /* Lighter text for light backgrounds */
+    --text-lighter-color: #fdfdfd;
+    --border-color: rgba(255, 255, 255, 0.1); /* Subtle borders for dark background */
+    --footer-bg-color: #1A242C; /* Footer matches header */
+    
+    /* Typography */
+    --font-primary: 'Montserrat', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
+    
+    /* Other */
+    --border-radius: 3px;
+    --transition-speed: 0.3s;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   Reset and Base Styles
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   Typography
+   ========================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: var(--spacing-sm);
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* ==========================================
+   Layout
+   ========================================== */
+.container {
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+main {
+    min-height: 60vh;
+}
+
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+/* ==========================================
+   Component Styles
+   ========================================== */
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+/* ==========================================
+   Buttons - Global Button Styles
+   ========================================== */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all var(--transition-speed) ease;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: white;
+    border: 1px solid var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: #2A3440;
+    color: white;
+}
+
+.btn-secondary {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: white;
+    border: 1px solid #25d366;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20BA5C;
+    border-color: #20BA5C;
+    color: white;
+}
+
+/* ==========================================
+   Header Styles - Global Header
+   ========================================== */
+header {
+    background-color: var(--primary-color);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    transition: all var(--transition-speed) ease;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-top-left, .header-top-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    margin-right: 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: white;
+}
+
+.contact-info {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-info span {
+    margin-right: 15px;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    width: 100%;
+    height: 70px;
+}
+
+/* Logo styles */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: auto; /* Pushes the logo to the left */
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+/* Header scroll effect styles */
+header.scrolled {
+    background-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+header.scrolled .logo,
+header.scrolled nav ul li a {
+    color: white;
+}
+
+header.scrolled .header-top {
+    display: none;
+}
+
+header.scrolled .header-main {
+    padding: 10px 0;
+}
+
+/* ==========================================
+   Navigation - Global Navigation
+   ========================================== */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color var(--transition-speed) ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+nav ul li a:hover, 
+nav ul li a.active {
+    color: var(--secondary-color);
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 25px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: width var(--transition-speed) ease;
+}
+
+nav ul li a:hover:after, 
+nav ul li a.active:after {
+    width: 100%;
+}
+
+/* Contact Button Styles */
+nav ul li a.contact-button,
+nav ul li a[href="contact.html"] {
+    background-color: var(--secondary-color);
+    color: white !important;
+    padding: 12px 24px !important;
+    text-decoration: none;
+    font-family: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed) ease;
+    display: inline-block;
+    line-height: normal;
+    height: auto;
+}
+
+nav ul li a.contact-button:hover,
+nav ul li a[href="contact.html"]:hover {
+    background-color: #c51a1f;
+    color: white !important;
+}
+
+nav ul li a.contact-button:after,
+nav ul li a[href="contact.html"]:after {
+    display: none !important;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* ==========================================
+   Breadcrumb - Global Page Navigation
+   ========================================== */
+.breadcrumb {
+    padding-top: 120px;
+    padding-bottom: 20px;
+    background-color: var(--background-alt-color);
+    color: var(--text-light-color);
+}
+
+.breadcrumb-list {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    font-size: 0.8rem;
+    color: var(--text-light-color);
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: "/";
+    margin: 0 10px;
+    color: var(--text-lighter-color);
+}
+
+.breadcrumb-link {
+    color: var(--text-light-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.breadcrumb-link:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================
+   Special UI Elements
+   ========================================== */
+/* Whatsapp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background-color: #20BA5C;
+    transform: scale(1.1);
+}
+
+/* Add a subtle pulse animation */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* ==========================================
+   Footer Styles - Global Footer
+   ========================================== */
+footer {
+    background-color: var(--footer-bg-color);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--spacing-md);
+}
+
+.social-links {
+    display: flex;
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: var(--primary-color);
+    border-radius: 50%;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.social-link:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.footer-title {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.footer-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 1px;
+    background-color: var(--secondary-color);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.contact-item {
+    display: flex;
+    margin-bottom: var(--spacing-sm);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.contact-icon {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+/* ==========================================
+   Utility Classes - Used Across the Site
+   ========================================== */
+.text-center { text-align: center; }
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.py-1 { padding-top: var(--spacing-xs); padding-bottom: var(--spacing-xs); }
+.py-2 { padding-top: var(--spacing-sm); padding-bottom: var(--spacing-sm); }
+.py-3 { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+.py-4 { padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg); }
+.py-5 { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
+
+.px-1 { padding-left: var(--spacing-xs); padding-right: var(--spacing-xs); }
+.px-2 { padding-left: var(--spacing-sm); padding-right: var(--spacing-sm); }
+.px-3 { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.px-4 { padding-left: var(--spacing-lg); padding-right: var(--spacing-lg); }
+.px-5 { padding-left: var(--spacing-xl); padding-right: var(--spacing-xl); }
+
+.bg-light { background-color: var(--background-alt-color); }
+.bg-white { background-color: white; }

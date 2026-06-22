@@ -1,0 +1,224 @@
+/* Branches page styles */
+
+.page-header {
+  padding-block: var(--space-lg) var(--space-md);
+}
+
+.page-header h1 {
+  color: var(--color-white);
+  font-size: clamp(1.75rem, 4vw, 2.8rem);
+}
+
+.page-header p {
+  color: var(--color-text-on-dark-muted);
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+/* Search bar with icon */
+.branch-search-bar {
+  max-width: 28rem;
+  margin: 0 auto var(--space-md);
+}
+
+.branch-search-wrap {
+  position: relative;
+}
+
+.branch-search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--color-text-on-light-muted);
+  pointer-events: none;
+}
+
+#branch-search {
+  width: 100%;
+  padding: 0.85rem 1.1rem 0.85rem 2.6rem;
+  border: 1px solid var(--color-border-on-light);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+#branch-search:focus {
+  outline: 2px solid var(--color-red);
+  outline-offset: 2px;
+}
+
+/* Shared hours note above grid */
+.branch-hours-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-on-light-muted);
+  margin-bottom: var(--space-md);
+}
+
+.branch-empty {
+  text-align: center;
+  color: var(--color-text-on-light-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* Grid */
+.branch-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  align-items: stretch;
+}
+
+.branch-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.branch-card-hq {
+  border: 2px solid var(--color-red);
+}
+
+.branch-card-body {
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.branch-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.branch-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background-color: rgba(26, 36, 44, 0.08);
+}
+
+.branch-status.is-open {
+  background-color: rgba(37, 211, 102, 0.15);
+  color: #1a8a4a;
+}
+
+.branch-status.is-closed {
+  background-color: rgba(227, 30, 36, 0.1);
+  color: var(--color-red-dark);
+}
+
+.branch-card-body h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+
+.branch-address {
+  font-size: 0.85rem;
+  color: var(--color-text-on-light-muted);
+  margin-bottom: 0.15rem;
+}
+
+.branch-district {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-red);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-sm);
+}
+
+.branch-features {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: var(--space-sm);
+}
+
+.branch-features li {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background-color: rgba(26, 36, 44, 0.05);
+  color: var(--color-text-on-light-muted);
+}
+
+/* Actions: Call + Directions side by side */
+.branch-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+
+.branch-actions .btn {
+  padding: 0.65rem 0.75rem;
+  font-size: 0.8rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+
+.branch-actions .btn .icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* Outline navy button */
+.btn-outline-navy {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1.5px solid var(--color-navy);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+}
+
+.btn-outline-navy:hover {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+@media (min-width: 600px) {
+  .branch-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .branch-card-hq {
+    grid-column: 1 / -1;
+  }
+
+  .branch-card-body {
+    padding: var(--space-md);
+  }
+
+  .branch-card-body h2 {
+    font-size: 1.2rem;
+  }
+
+  .branch-address {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .page-header {
+    padding-block: var(--space-xl) var(--space-lg);
+  }
+}

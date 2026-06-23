@@ -264,6 +264,12 @@ section {
   box-shadow: var(--shadow-soft);
 }
 
+.btn-wa-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  flex-shrink: 0;
+}
+
 .btn-ghost-on-dark {
   background-color: transparent;
   border-color: var(--color-border-on-dark);
@@ -489,139 +495,17 @@ section {
 }
 
 /* ==========================================
-   CTA — dual block (shared across all pages)
+   CTA
    ========================================== */
-.cta-dual {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-md);
+.cta h2 {
+  max-width: 36rem;
+  margin-inline: auto;
 }
 
-.cta-block {
-  border-radius: var(--radius-md);
-  padding: var(--space-lg) var(--space-md);
-  text-align: center;
-}
-
-.cta-block h2 {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-}
-
-.cta-block p {
-  font-size: 0.95rem;
-  margin-bottom: var(--space-md);
-}
-
-.cta-block--wa {
-  background-color: var(--color-navy);
-}
-
-.cta-block--wa h2 { color: var(--color-white); }
-.cta-block--wa p  { color: var(--color-text-on-dark); }
-
-.cta-block--visit {
-  background-color: var(--color-white);
-  box-shadow: var(--shadow-soft);
-}
-
-.cta-block--visit h2 { color: var(--color-navy); }
-.cta-block--visit p  { color: var(--color-text-on-light-muted); }
-
-/* WhatsApp button */
-.btn-wa,
-.btn-hero-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--color-white);
-  color: var(--color-navy);
-  font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  min-height: 44px;
-  border: none;
-  cursor: pointer;
-  transition: background var(--duration-fast) var(--ease-standard);
-}
-
-.btn-wa:hover,
-.btn-hero-wa:hover {
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.btn-wa--green {
-  background: #25D366;
-  color: var(--color-white);
-}
-
-.btn-wa--green:hover { background: #1ebe5d; }
-
-.wa-logo {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-.wa-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #25D366;
-  flex-shrink: 0;
-  display: inline-block;
-}
-
-/* Mobile: full-width centered buttons */
-.btn-wa,
-.cta-block--visit .btn {
-  width: 100%;
-  justify-content: center;
-}
-
-/* Button group: side-by-side inline, wraps on small screens */
-.cta-button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-}
-
-/* Eyebrow on dark block: muted white, not red */
-.cta-block--wa .section-title {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-@media (min-width: 768px) {
-  /* Remove all section/container/gap spacing so blocks bleed edge to edge */
-  .cta {
-    padding-block: 0;
-  }
-
-  .cta .container {
-    max-width: none;
-    padding-inline: 0;
-  }
-
-  .cta-dual {
-    gap: 0;
-  }
-
-  /* Blocks become full-width bands, not cards */
-  .cta-block {
-    border-radius: 0;
-    box-shadow: none;
-    padding: var(--space-xl) 15%;
-  }
-
-  .btn-wa,
-  .cta-block--visit .btn {
-    width: auto;
-  }
+.cta p {
+  max-width: 34rem;
+  margin-inline: auto;
+  color: var(--color-text-on-light-muted);
 }
 
 /* ==========================================
@@ -704,12 +588,19 @@ section {
 
 .footer-links a {
   color: var(--color-text-on-dark-muted);
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding-block: 0.35rem;
 }
 
 .footer-links a:hover {
   color: var(--color-white);
+}
+
+.footer-links .icon {
+  color: var(--color-red);
+  flex-shrink: 0;
 }
 
 .footer-contact-item {

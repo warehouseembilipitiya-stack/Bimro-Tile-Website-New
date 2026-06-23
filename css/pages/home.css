@@ -371,7 +371,30 @@
   }
 }
 
-/* CTA dual-block and WhatsApp button styles live in main.css */
+/* CTA buttons: equal width, centered content — desktop only */
+@media (min-width: 768px) {
+  .cta .btn {
+    min-width: 200px;
+    justify-content: center;
+  }
+}
+
+/* Branches teaser */
+.branches-teaser-grid {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.branches-teaser-grid h2 {
+  color: var(--color-white);
+}
+
+.branches-teaser-grid p {
+  color: var(--color-text-on-dark-muted);
+  max-width: 40rem;
+}
 
 /* Mobile hero: fixed-size card — same height on all 3 slides */
 @media (max-width: 767px) {
